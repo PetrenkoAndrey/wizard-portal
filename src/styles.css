@@ -37,3 +37,8 @@ a{
 a.nav-link{
   color: white !important;
 }
+
+.not-found{
+  display: inline-block;
+  vertical-align: middle;
+}
