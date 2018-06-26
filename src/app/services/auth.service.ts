@@ -22,7 +22,9 @@ export class AuthService {
         data => {
           this._router.navigate(['home']);
         },
-        err => console.log(err.json().error_description),
+        err => {
+          console.log(err.json().error_description);
+        }
       );
   }
 }
