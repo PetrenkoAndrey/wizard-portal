@@ -39,6 +39,8 @@ a.nav-link{
 }
 
 .not-found{
-  display: inline-block;
-  vertical-align: middle;
+  color: red;
+  text-align: center;
+  margin-top: 25%;
 }
+
