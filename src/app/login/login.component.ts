@@ -7,7 +7,6 @@ import {AuthService} from '../services/auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-
   constructor(private authService: AuthService) { }
 
   username = 'apetrenko4@deepcode.co';
@@ -15,6 +14,7 @@ export class LoginComponent {
 
   login() {
     return this.authService.getToken(this.username, this.password);
+
   }
 
 }

@@ -10,7 +10,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { HomeComponent } from './home/home.component';
 import {AuthService} from './services/auth.service';
 import {HttpClientModule} from '@angular/common/http';
-import {HttpModule} from "@angular/http";
+import {HttpModule} from '@angular/http';
 import {FormsModule} from '@angular/forms';
 
 
