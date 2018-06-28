@@ -1,6 +1,5 @@
-import { Input, Component, OnInit } from '@angular/core';
-import {AuthService} from '../services/auth.service';
-import {LoginComponent} from '../login/login.component';
+import { Component, OnInit } from '@angular/core';
+import {AuthService} from '../_services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -9,11 +8,9 @@ import {LoginComponent} from '../login/login.component';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private loginComponent: LoginComponent) { }
+  constructor() { }
 
   ngOnInit() {
-
-  console.log(this.loginComponent.response);
 
   }
 

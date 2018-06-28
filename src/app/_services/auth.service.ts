@@ -7,7 +7,7 @@ import {environment} from '../../environments/environment';
   providedIn: 'root'
 })
 export class AuthService {
-  constructor(private http: Http) {}
+  constructor(private http: Http, private _router: Router) {}
 
   getToken(username: string, password: string) {
     const url = environment.authHost + '/token';
@@ -17,7 +17,16 @@ export class AuthService {
     body += '&twoFactorToken=undefined';
     body += '&rememberBrowserToken=null';
     body += '&client_id=portal';
-    let response:any;
-    return this.http.post(url, body);
+    let response: any;
+    return this.http.post(url, body).subscribe(
+      response => {
+        this.response = JSON.parse(response.text());
+        localStorage.setItem('authData', JSON.stringify(this.response));
+        this._router.navigate(['home']);
+      },
+      err => {
+        this.err = err.json().error_description;
+      }
+    );
   }
 }
