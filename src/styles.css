@@ -43,4 +43,7 @@ a.nav-link{
   text-align: center;
   margin-top: 25%;
 }
+.nav-item.dropdown{
+  float:right;
+}
 

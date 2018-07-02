@@ -11,7 +11,7 @@ export class LoginComponent {
 
   username = 'apetrenko4@deepcode.co';
   password = 'Password123';
-  loginret:any;
+  err = '';
 
   login() {
     return this.authService.getToken(this.username, this.password);

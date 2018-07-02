@@ -7,6 +7,10 @@ import {environment} from '../../environments/environment';
   providedIn: 'root'
 })
 export class AuthService {
+  response: any;
+  err: any;
+  res: any;
+
   constructor(private http: Http, private _router: Router) {}
 
   getToken(username: string, password: string) {
@@ -17,7 +21,7 @@ export class AuthService {
     body += '&twoFactorToken=undefined';
     body += '&rememberBrowserToken=null';
     body += '&client_id=portal';
-    let response: any;
+
     return this.http.post(url, body).subscribe(
       response => {
         this.response = JSON.parse(response.text());
@@ -29,4 +33,16 @@ export class AuthService {
       }
     );
   }
+
+  logOut() {
+    localStorage.clear();
+    this._router.navigate(['login']);
+  }
+
+  getTokenData(propertyName: string) {
+    this.res = JSON.parse(localStorage['authData'] || '{}');
+    console.log(this.res[propertyName]);
+    return this.res[propertyName];
+  }
+
 }
