@@ -5,22 +5,24 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class="nav-item nav-link" href="/home">Home</a>
-      <a class="nav-item nav-link" href="/offer">Offers</a>
-      <a class="nav-item nav-link" href="/coupon">Coupons</a>
-      <a class="nav-item nav-link" href="/dashboard">Dashboards</a>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          {{getTokenData('displayName')}}
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <span  class="dropdown-item" >{{getTokenData('clientName')}} Acc</span>
-          <a class="dropdown-item" href="/profile">Profile</a>
-          <a class="dropdown-item" href="/system">System</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" (click)="logout()">LogOut</a>
-        </div>
-      </li>
+      <a class="nav-item nav-link" href="home">Home</a>
+      <a class="nav-item nav-link" href="offer">Offers</a>
+      <a class="nav-item nav-link" href="coupon">Coupons</a>
+      <a class="nav-item nav-link" href="dashboard">Dashboards</a>
+      <ul>
+        <li class="nav-item dropdown navbar-right">
+          <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {{getTokenData('displayName')}}
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <span  class="dropdown-item account-name" >{{getTokenData('clientName')}} Acc</span>
+            <a class="dropdown-item" href="profile">Profile</a>
+            <a class="dropdown-item" href="system">System</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href (click)="logout()"><span class="glyphicon glyphicon-log-out"></span>LogOut</a>
+          </div>
+        </li>
+      </ul>
     </div>
   </div>
 </nav>

@@ -12,12 +12,24 @@ import {AuthService} from './_services/auth.service';
 import {HttpClientModule} from '@angular/common/http';
 import {HttpModule} from '@angular/http';
 import {FormsModule} from '@angular/forms';
+import { ProfileComponent } from './profile/profile.component';
+import { OfferComponent } from './offer/offer.component';
+import { CouponComponent } from './coupon/coupon.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SystemComponent } from './system/system.component';
+import { AdminComponent } from './admin/admin.component';
 
 
 const appRoutes: Routes = [
   { path: '', component: LoginComponent},
   { path: 'login', component: LoginComponent},
   { path: 'home', component: HomeComponent},
+  { path: 'offer', component: OfferComponent},
+  { path: 'coupon', component: CouponComponent},
+  { path: 'dashboard', component: DashboardComponent},
+  { path: 'admin', component: AdminComponent},
+  { path: 'system', component: SystemComponent},
+  { path: 'profile', component: ProfileComponent},
   { path: 'forgot-password', component: ForgotPasswordComponent},
   { path: '**', component: NotFoundComponent }
 ];
@@ -28,7 +40,13 @@ const appRoutes: Routes = [
     LoginComponent,
     NotFoundComponent,
     ForgotPasswordComponent,
-    HomeComponent
+    HomeComponent,
+    ProfileComponent,
+    OfferComponent,
+    CouponComponent,
+    DashboardComponent,
+    SystemComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
