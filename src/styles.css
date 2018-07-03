@@ -42,7 +42,12 @@ a.nav-link:hover{
   color: #db5d25;
 }
 
-a.dropdown-item:hover{
+.dropdown-item:active{
+  background-color: unset !important;
+  color: unset !important;
+}
+
+.dropdown-item:hover {
   color: #db5d25;
 }
 
