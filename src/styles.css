@@ -14,6 +14,7 @@ footer {
   -webkit-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+  border-radius: 5px;
 }
 body{
   background: url("app/img/green-wallpaper3.jpg") no-repeat center top fixed;
@@ -80,6 +81,7 @@ a.nav-link:hover{
   -webkit-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+  border-radius: 5px;
 }
 
 .card-header{
@@ -88,6 +90,10 @@ a.nav-link:hover{
 
 .form-check{
   padding: 10px;
+}
+
+.card{
+  border-radius: 5px;
 }
 
 
