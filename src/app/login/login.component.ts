@@ -9,8 +9,8 @@ import {AuthService} from '../_services/auth.service';
 export class LoginComponent {
   constructor(private authService: AuthService) { }
 
-  username = 'apetrenko4@deepcode.co';
-  password = 'Password123';
+  username = '';
+  password = '';
   err = '';
 
   login() {
