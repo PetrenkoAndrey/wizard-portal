@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {UserService} from '../_services/user.service';
 
 @Component({
   selector: 'app-profile',
@@ -7,9 +8,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor() { }
+  profile = [];
+  firstName: any;
+  lastName: any;
+  userName: any;
+  pinCode: any;
+  allowUserSearch: any;
+  allowUserPrintOnRedemption: any;
+  allowUserReprintOnRedemption: any;
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
+    this.profile = this.userService.profile;
+    this.firstName = this.profile[0].firstName;
+    this.lastName = this.profile[0].lastName;
+    this.userName = this.profile[0].userName;
+    this.pinCode = this.profile[0].pinCode;
+    this.allowUserSearch = this.profile[0].allowUserSearch;
+    this.allowUserPrintOnRedemption = this.profile[0].allowUserPrintOnRedemption;
+    this.allowUserReprintOnRedemption = this.profile[0].allowUserReprintOnRedemption;
+    console.log(this.profile);
   }
 
 }

@@ -18,6 +18,7 @@ import { CouponComponent } from './coupon/coupon.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SystemComponent } from './system/system.component';
 import { AdminComponent } from './admin/admin.component';
+import {UserService} from './_services/user.service';
 
 
 const appRoutes: Routes = [
@@ -55,7 +56,7 @@ const appRoutes: Routes = [
     HttpModule,
     FormsModule
   ],
-  providers: [AuthService, LoginComponent],
+  providers: [AuthService, LoginComponent, UserService, ProfileComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
