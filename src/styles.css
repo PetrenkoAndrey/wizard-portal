@@ -38,6 +38,14 @@ a{
 a.nav-link{
   color: white;
 }
+.navbar-brand{
+  padding: 0px !important;
+}
+.nav-img
+{
+  max-height: 40px;
+  max-width: 150px;
+}
 
 a.nav-link:hover{
   color: #db5d25;
