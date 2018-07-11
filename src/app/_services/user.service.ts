@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import {Router} from '@angular/router';
 import {Http} from '@angular/http';
 
 @Injectable({
@@ -19,8 +18,8 @@ export class UserService {
         'User'
       ],
       pinCode: '#270386',
-      allowUserSearch: false,
-      allowUserPrintOnRedemption: false,
+      allowUserSearch: true,
+      allowUserPrintOnRedemption: true,
       allowUserReprintOnRedemption: true,
       lastPasswordChangedDate: '2018-04-09T00:00:00',
       expiredOn: null,
@@ -29,7 +28,7 @@ export class UserService {
   ];
   constructor(private http: Http) { }
 
-  getUserProfile(){
+  getUserProfile() {
     return null;
-  };
+  }
 }
