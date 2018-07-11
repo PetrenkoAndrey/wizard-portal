@@ -28,4 +28,8 @@ export class UserService {
     }
   ];
   constructor(private http: Http) { }
+
+  getUserProfile(){
+    return null;
+  };
 }
