@@ -15,10 +15,10 @@ import {FormsModule} from '@angular/forms';
 import { ProfileComponent } from './profile/profile.component';
 import { OfferComponent } from './offer/offer.component';
 import { CouponComponent } from './coupon/coupon.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { SystemComponent } from './system/system.component';
 import { AdminComponent } from './admin/admin.component';
 import {UserService} from './_services/user.service';
+import {SnapshotComponent} from './snapshot/snapshot.component';
 
 
 const appRoutes: Routes = [
@@ -27,7 +27,7 @@ const appRoutes: Routes = [
   { path: 'home', component: HomeComponent},
   { path: 'offer', component: OfferComponent},
   { path: 'coupon', component: CouponComponent},
-  { path: 'dashboard', component: DashboardComponent},
+  { path: 'snapshot', component: SnapshotComponent},
   { path: 'admin', component: AdminComponent},
   { path: 'system', component: SystemComponent},
   { path: 'profile', component: ProfileComponent},
@@ -45,7 +45,7 @@ const appRoutes: Routes = [
     ProfileComponent,
     OfferComponent,
     CouponComponent,
-    DashboardComponent,
+    SnapshotComponent,
     SystemComponent,
     AdminComponent
   ],
