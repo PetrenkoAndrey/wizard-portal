@@ -15,7 +15,6 @@ export class AuthService {
   constructor(private http: Http, private _router: Router) {}
 
   getToken(username: string, password: string) {
-    this.errorMessage = '';
     const url = environment.authHost + '/token';
     let body = 'grant_type=password';
     body += '&username=' + username;
@@ -50,7 +49,6 @@ export class AuthService {
 
 
   restorePassword(email: string) {
-    this.errorMessage = '';
     const url = environment.authHost + '/api/Users/reset-password';
     const body = {};
     body['email'] = email;
@@ -69,7 +67,7 @@ export class AuthService {
     );
   }
 
-  clearErrorMessages(){
+  clearErrorMessages() {
     return this.errorMessage = '';
   }
 
