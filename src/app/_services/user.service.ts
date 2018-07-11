@@ -19,7 +19,7 @@ export class UserService {
         'User'
       ],
       pinCode: '#270386',
-      allowUserSearch: true,
+      allowUserSearch: false,
       allowUserPrintOnRedemption: false,
       allowUserReprintOnRedemption: true,
       lastPasswordChangedDate: '2018-04-09T00:00:00',
