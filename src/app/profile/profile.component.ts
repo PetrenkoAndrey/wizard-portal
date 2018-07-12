@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {UserService} from '../_services/user.service';
+import {AuthService} from '../_services/auth.service';
 
 @Component({
   selector: 'app-profile',
@@ -16,7 +17,7 @@ export class ProfileComponent implements OnInit {
   allowUserSearch: any;
   allowUserPrintOnRedemption: any;
   allowUserReprintOnRedemption: any;
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private authService: AuthService) { }
 
   ngOnInit() {
     this.profile = this.userService.profile;
@@ -28,6 +29,7 @@ export class ProfileComponent implements OnInit {
     this.allowUserPrintOnRedemption = this.profile[0].allowUserPrintOnRedemption;
     this.allowUserReprintOnRedemption = this.profile[0].allowUserReprintOnRedemption;
     console.log(this.profile);
+    this.authService.refreshTokenOnInit();
   }
 
 }

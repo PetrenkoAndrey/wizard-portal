@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {AuthService} from '../_services/auth.service';
 
 @Component({
   selector: 'app-coupon',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CouponComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit() {
+    this.authService.refreshTokenOnInit();
   }
 
 }
