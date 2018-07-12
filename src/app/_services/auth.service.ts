@@ -11,6 +11,10 @@ export class AuthService {
   err: any;
   res: any;
   errorMessage = '';
+  public timerInterval: any;
+  refresh_token = this.getTokenData('refresh_token');
+  accountHash = this.getTokenData('accountHash');
+  Authorization = '' ;
 
   constructor(private http: Http, private _router: Router) {}
 
@@ -25,8 +29,11 @@ export class AuthService {
 
     return this.http.post(url, body).subscribe(
       response => {
+        localStorage.clear();
         this.response = JSON.parse(response.text());
         localStorage.setItem('authData', JSON.stringify(this.response));
+        localStorage.setItem('Authorization', this.getTokenData('token_type') + ' ' + this.getTokenData('access_token'));
+        this.timerInterval = setInterval(this.refreshToken.bind(this), 1000 * this.getTokenData('expires_in'));
         this._router.navigate(['home']);
       },
       err => {
@@ -43,7 +50,6 @@ export class AuthService {
 
   getTokenData(propertyName: string) {
     this.res = JSON.parse(localStorage['authData'] || '{}');
-    console.log(this.res[propertyName]);
     return this.res[propertyName];
   }
 
@@ -69,6 +75,33 @@ export class AuthService {
 
   clearErrorMessages() {
     return this.errorMessage = '';
+  }
+
+  refreshToken() {
+    const url = environment.authHost + '/token';
+    this.refresh_token = this.getTokenData('refresh_token');
+    this.accountHash = this.getTokenData('accountHash');
+    let body = 'grant_type=refresh_token';
+    body += '&refresh_token=' + this.refresh_token;
+    body += '&accountHash=' + this.accountHash;
+    body += '&client_id=portal';
+    return this.http.post(url, body).subscribe(
+        response => {
+          localStorage.clear();
+          this.response = JSON.parse(response.text());
+          localStorage.setItem('authData', JSON.stringify(this.response));
+          localStorage.setItem('Authorization', this.getTokenData('token_type') + ' ' + this.getTokenData('access_token'));
+        },
+        err => {
+          this.err = JSON.parse(err.text());
+          this.errorMessage = this.err.error_description;
+        }
+      );
+  }
+
+  getAuthToken() {
+    this.Authorization = localStorage['Authorization'];
+    return this.Authorization;
   }
 
 }
